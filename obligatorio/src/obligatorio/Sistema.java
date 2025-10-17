@@ -18,27 +18,37 @@ public class Sistema {
     }
 
     public void mostrarRankings() {
-        String rank="-----------Rankings----------\n"
+        String rank = "-----------Rankings----------\n"
                 + "Lista de invictos:\n";
         for (Jugador jug : listaJugadores) {
 
             if (jug.isInvicto() == true) {
 
-                rank+=jug+"\n";
+                rank += jug + "\n";
             }
 
         }
-        
-     rank+= "\n Lista de Jugadores";
-     
+
+        rank += "\n Lista de Jugadores";
+
         for (Jugador jugs : listaJugadores) {
-          
+
             if (jugs.isInvicto() == false) {
-            
-            rank+=jugs+"\n";
-            
-        }
+
+                rank += jugs + "\n";
+
+            }
         }
     }
+    
+    
+    public void ordenarPorNombre(){
+
+        Collections.sort(listaJugadores);
+        
+    }
+    
+    
+    
 
 }
