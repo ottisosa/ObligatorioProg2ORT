@@ -20,37 +20,41 @@ public class Sistema {
     public void mostrarRankings() {
         String rank = "-----------Rankings----------\n"
                 + "Lista de invictos:\n";
-        
+
         ordenarPorNombre();
-        
+
         for (Jugador jug : listaJugadores) {
 
             if (jug.isInvicto() == true) {
 
                 rank += jug + "\n";
             }
-            
+
         }
 
         ordenarPorGanadas();
-        
+
         for (Jugador jug : listaJugadores) {
 
-                rank += jug + "\n";
+            rank += jug + "\n";
         }
-        
+
         System.out.println(rank);
     }
-    
-        public void mostrarJugadores() {
+
+    public void mostrarJugadores() {
 
         String lista = "-----------Lista de Jugadores-----------\n";
 
-        for (Jugador jug : listaJugadores) {
+        
+        for (int i = 0; i < listaJugadores.size(); i++) {
 
-            lista += jug + "\n";
-
+            lista += "" + (i+1) + listaJugadores.get(i) + "\n";
+            
         }
+
+        System.out.println(lista);
+
     }
 
     public void ordenarPorNombre() {
@@ -64,8 +68,6 @@ public class Sistema {
         Collections.sort(listaJugadores);
 
     }
-
-
 
     private class criterioNombre implements Comparator<Jugador> {
 
