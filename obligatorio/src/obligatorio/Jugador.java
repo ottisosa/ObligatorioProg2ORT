@@ -5,7 +5,7 @@ package obligatorio;
 import java.util.ArrayList;
 
 
-public class Jugador {
+public class Jugador implements Comparable<Jugador>{
     private String nombre;
     private int edad;
     private boolean invicto;
@@ -65,5 +65,13 @@ public class Jugador {
     public void setGanadas(int ganadas) {
         this.ganadas = ganadas;
     }
+    
+    
+    @Override
+    public int compareTo(Jugador jug){
+    
+        return this.getGanadas() - jug.getGanadas();
+    }
+    
     
 }
