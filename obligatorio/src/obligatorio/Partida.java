@@ -32,7 +32,13 @@ public class Partida {
         this.mat = matriz;
     }
 
-    
+    public void jugarPartida(){
+        boolean fin=false;
+        while (!fin){
+            Menu.imprimirTablero(mat);
+            
+        }
+    }
     
     
 

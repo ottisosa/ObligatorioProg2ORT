@@ -59,10 +59,11 @@ public class Menu {
         } catch (UnsupportedEncodingException ex) {
             System.getLogger(Main.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
-
+        
+        
+        System.out.println("    1  2  3  4  5  6");
         for (int i = 0; i < 3; i++) {
-
-            String out = "";
+            String out = "  ";
             for (int j = 0; j < 6; j++) {
                 out += "+--";
             }
@@ -70,9 +71,14 @@ public class Menu {
 
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 6; k++) {
-                    System.out.print("|");
-
                     if (j == 0 || j == 2) {
+                        if (k==0){
+                            System.out.print("  |");
+                        }
+                        else{
+                            System.out.print("|");
+                        }
+                        
                         switch (mat[i][k]) {
                             case "CW":
                                 System.out.print(" ○");
@@ -91,6 +97,27 @@ public class Menu {
                                 break;
                         }
                     } else {
+                        if (k==0){
+                            switch (i){
+                            case 0:
+                                System.out.print("A |");
+                                
+                                break;
+                            case 1:
+                                System.out.print("B |");
+                                
+                                break;
+                            case 2:
+                                System.out.print("C |");
+                                
+                                break;
+                            }
+                        }
+                        else{
+                            System.out.print("|");
+                        }
+                        
+                        
                         switch (mat[i][k]) {
                             case "CW":
                                 System.out.print("○ ");
@@ -113,7 +140,7 @@ public class Menu {
                 System.out.println("|");
             }
         }
-        String out = "";
+        String out = "  ";
         for (int j = 0; j < 6; j++) {
             out += "+--";
         }

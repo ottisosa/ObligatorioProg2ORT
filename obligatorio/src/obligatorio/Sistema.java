@@ -72,6 +72,7 @@ public class Sistema {
 
     private class criterioNombre implements Comparator<Jugador> {
 
+        @Override
         public int compare(Jugador jug1, Jugador jug2) {
             return jug1.getNombre().compareTo(jug2.getNombre());
         }
