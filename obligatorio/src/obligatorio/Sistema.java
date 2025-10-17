@@ -32,6 +32,7 @@ public class Sistema {
 
         }
 
+        rank += "\nRanking por ganadas";
         ordenarPorGanadas();
 
         for (Jugador jug : listaJugadores) {
