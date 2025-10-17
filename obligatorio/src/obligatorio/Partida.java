@@ -8,7 +8,7 @@ public class Partida {
     private String[][] mat;
 
     public Partida(Sistema sistema) {
-        sistema.mostrarJug();
+        sistema.mostrarJugadores();
         
         int num1 = Menu.pedirNumero("Ingrese nro de jugador 1", 1, sistema.getListaJugadores().size());
         for (int i = 0; i < sistema.getListaJugadores().size(); i++) {
