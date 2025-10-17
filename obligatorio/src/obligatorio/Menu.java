@@ -1,5 +1,7 @@
 package obligatorio;
 
+// Autores: Santiago Quintana (327886), Octavio Sosa (363131)
+
 import com.sun.tools.javac.Main;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -129,12 +131,12 @@ public class Menu {
                 dato = in.nextInt();
                 in.nextLine();
                 if (dato < minimo || dato > maximo) {
-                    System.out.println("Valor fuera de rango");
+                    System.out.println("Valor fuera de rango\n");
                 } else {
                     ok = true;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Ingrese solo numeros, por favor");
+                System.out.println("Ingrese *SOLO* numeros en el rango aceptado.\n");
                 in.nextLine();
             }
         }
@@ -149,12 +151,12 @@ public class Menu {
                 System.out.print(mensaje);
                 dato = in.nextLine();
                 if (dato.length() < minimo || dato.length() > maximo) {
-                    System.out.println("Valor fuera de rango");
+                    System.out.println("Valor fuera de rango\n");
                 } else {
                     ok = true;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Ingrese texto, por favor");
+                System.out.println("Ingrese texto, por favor\n");
                 in.nextLine();
             }
         }
