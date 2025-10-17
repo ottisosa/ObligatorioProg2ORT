@@ -2,21 +2,36 @@ package obligatorio;
 
 // Autores: Santiago Quintana (327886), Octavio Sosa (363131)
 
+import java.util.ArrayList;
+
+
 public class Jugador {
     private String nombre;
     private int edad;
     private boolean invicto;
     private int ganadas;
 
-    public Jugador(String nombre, int edad) {
-        for(int i=0; i<Sistema.getListaJugadores().size(); i++){
-            if (Sistema.getListaJugadores()[i].getNombre()==)
+    public Jugador(ArrayList<Jugador> listaJug) {
+        boolean ok=false;
+        String nom="";
+        while(!ok) {
+            nom = Menu.pedirString("Ingrese nombre (1-70 caracteres): ", 1, 70);
+            ok=true;
+            for (int i = 0; i < listaJug.size(); i++) {
+                if(listaJug.get(i).getNombre()==nombre){
+                    ok=false;
+                    System.out.println("Nombre ya existe");
+                }
+
+            }
         }
         
-        this.nombre = nombre;
-        this.edad = edad;
-        this.invicto = true;
-        this.ganadas = 0;
+        if (ok==true){
+            this.nombre = nom;
+            this.edad = Menu.pedirNumero("Ingrese Edad (1-200)", 1, 200);
+            this.invicto = true;
+            this.ganadas = 0;
+        }
     }
     
     public String getNombre() {

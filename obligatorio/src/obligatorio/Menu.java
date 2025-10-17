@@ -5,10 +5,11 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-public abstract class Menu {
-
-    public static void menuInicial() {
-
+public class Menu {
+    private Sistema sistema;
+    
+    public void menuInicial() {
+        
         int opcion = 0;
         while (opcion != 5) {
             System.out.println("Autores: Santiago Quintana (327886), Octavio Sosa (363131)"
@@ -28,7 +29,7 @@ public abstract class Menu {
             switch(opcion){
             
                 case 1:
-                    Jugador jug = new Jugador ()
+                    Jugador jug = new Jugador(sistema.getListaJugadores());
                     break;
                     
                 case 2:
@@ -155,5 +156,9 @@ public abstract class Menu {
             }
         }
         return dato;
+    }
+
+    public Menu(Sistema sistema) {
+        this.sistema = sistema;
     }
 }
