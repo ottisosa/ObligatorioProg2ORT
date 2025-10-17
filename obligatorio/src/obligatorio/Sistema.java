@@ -17,20 +17,28 @@ public class Sistema {
 
     }
 
-    public void mostrarJugadoresInvictos() {
-
+    public void mostrarRankings() {
+        String rank="-----------Rankings----------\n"
+                + "Lista de invictos:\n";
         for (Jugador jug : listaJugadores) {
 
             if (jug.isInvicto() == true) {
 
-                System.out.println(jug);
+                rank+=jug+"\n";
             }
 
         }
-
-    }
-
-    public void mostrarRanking() {
+        
+     rank+= "\n Lista de Jugadores";
+     
+        for (Jugador jugs : listaJugadores) {
+          
+            if (jugs.isInvicto() == false) {
             
+            rank+=jugs+"\n";
+            
+        }
+        }
     }
+
 }

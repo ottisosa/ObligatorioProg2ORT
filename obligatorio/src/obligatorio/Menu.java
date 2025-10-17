@@ -20,7 +20,7 @@ public class Menu {
                     + "1. Registrar un jugador\n"
                     + "2. Comenzar partida\n"
                     + "3. Continuar partida\n"
-                    + "4. Mostrar ranking de invictos\n"
+                    + "4. Mostrar ranking e invictos\n"
                     + "5. Terminar el programa"
             );
             
@@ -29,7 +29,9 @@ public class Menu {
             switch(opcion){
             
                 case 1:
+
                     Jugador jug = new Jugador(sistema.getListaJugadores());
+
                     break;
                     
                 case 2:
@@ -42,6 +44,7 @@ public class Menu {
                     
                 case 4:
                     
+                                 
                     break;
                     
             };
