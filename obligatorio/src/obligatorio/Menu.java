@@ -136,4 +136,24 @@ public abstract class Menu {
         }
         return dato;
     }
+    public static String pedirString(String mensaje, int minimo, int maximo) {
+        Scanner in = new Scanner(System.in);
+        String dato = "";
+        boolean ok = false;
+        while (!ok) {
+            try {
+                System.out.print(mensaje);
+                dato = in.nextLine();
+                if (dato.length() < minimo || dato.length() > maximo) {
+                    System.out.println("Valor fuera de rango");
+                } else {
+                    ok = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Ingrese texto, por favor");
+                in.nextLine();
+            }
+        }
+        return dato;
+    }
 }
