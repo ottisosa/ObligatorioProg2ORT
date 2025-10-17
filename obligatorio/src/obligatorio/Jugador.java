@@ -68,6 +68,7 @@ public class Jugador implements Comparable<Jugador>{
     
     
     @Override
+    // Criterio por defecto ordenar por Ganadas
     public int compareTo(Jugador jug){
     
         return this.getGanadas() - jug.getGanadas();
