@@ -44,7 +44,7 @@ public class Menu {
                     break;
                     
                 case 4:
-                    
+                    sistema.mostrarRankings();
                                  
                     break;
                     

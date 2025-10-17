@@ -73,6 +73,15 @@ public class Jugador implements Comparable<Jugador>{
     
         return this.getGanadas() - jug.getGanadas();
     }
+
+    @Override
+    public String toString() {
+        String str = this.nombre+", "+this.edad+" años - "+this.ganadas+" wins";
+        if (this.invicto){
+            str+=", Invicto";
+        }
+        return str;
+    }
     
     
 }
