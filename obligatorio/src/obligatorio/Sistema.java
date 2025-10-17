@@ -41,6 +41,17 @@ public class Sistema {
         
         System.out.println(rank);
     }
+    
+        public void mostrarJugadores() {
+
+        String lista = "-----------Lista de Jugadores-----------\n";
+
+        for (Jugador jug : listaJugadores) {
+
+            lista += jug + "\n";
+
+        }
+    }
 
     public void ordenarPorNombre() {
 
@@ -54,16 +65,7 @@ public class Sistema {
 
     }
 
-    public void mostrarJugadores() {
 
-        String lista = "-----------Lista de Jugadores-----------\n";
-
-        for (Jugador jug : listaJugadores) {
-
-            lista += jug + "\n";
-
-        }
-    }
 
     private class criterioNombre implements Comparator<Jugador> {
 
