@@ -8,19 +8,16 @@ public class Jugador {
     private boolean invicto;
     private int ganadas;
 
-    public void crearJug(){
-        String nombre = Menu.pedirString("Ingrese Nombre de Jugador", 1, Integer.MAX_VALUE);
-        int edad = 
-    }
-
     public Jugador(String nombre, int edad) {
+        for(int i=0; i<Sistema.getListaJugadores().size(); i++){
+            if (Sistema.getListaJugadores()[i].getNombre()==)
+        }
+        
         this.nombre = nombre;
         this.edad = edad;
         this.invicto = true;
         this.ganadas = 0;
     }
-    
-    
     
     public String getNombre() {
         return nombre;
@@ -37,4 +34,21 @@ public class Jugador {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    public boolean isInvicto() {
+        return invicto;
+    }
+
+    public void setInvicto(boolean invicto) {
+        this.invicto = invicto;
+    }
+
+    public int getGanadas() {
+        return ganadas;
+    }
+
+    public void setGanadas(int ganadas) {
+        this.ganadas = ganadas;
+    }
+    
 }

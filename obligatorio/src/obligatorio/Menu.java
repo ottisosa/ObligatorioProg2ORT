@@ -28,7 +28,7 @@ public abstract class Menu {
             switch(opcion){
             
                 case 1:
-                    
+                    Jugador jug = new Jugador ()
                     break;
                     
                 case 2:
