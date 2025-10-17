@@ -31,13 +31,12 @@ public class Menu {
             switch(opcion){
             
                 case 1:
-
                     Jugador jug = new Jugador(sistema.getListaJugadores());
-
+                    sistema.addListaJugadores(jug);
                     break;
                     
                 case 2:
-                    
+                    Partida p = new Partida(sistema);
                     break;
                     
                 case 3:
