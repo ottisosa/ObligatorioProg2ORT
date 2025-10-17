@@ -9,6 +9,7 @@ public class Obligatorio {
         String [][] mat = {{"","","","CW","",""},{"","","","","",""},{"CW","CB","DW","DB","DB","CW"}};
         
         Menu menu = new Menu(sistema);
+        menu.menuInicial();
     }
 }
 
