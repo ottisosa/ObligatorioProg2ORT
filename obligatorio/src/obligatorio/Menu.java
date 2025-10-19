@@ -9,6 +9,7 @@ import java.util.*;
 
 public class Menu {
     private Sistema sistema;
+    private boolean guiasTab;
     
     public void menuInicial() {
         
@@ -61,7 +62,9 @@ public class Menu {
         }
         
         
-        System.out.println("    1  2  3  4  5  6");
+        if (isGuiasTab()){
+            System.out.println("    1  2  3  4  5  6");
+        }
         for (int i = 0; i < 3; i++) {
             String out = "  ";
             for (int j = 0; j < 6; j++) {
@@ -191,5 +194,23 @@ public class Menu {
 
     public Menu(Sistema sistema) {
         this.sistema = sistema;
+        this.guiasTab = true;
     }
+
+    public Sistema getSistema() {
+        return sistema;
+    }
+
+    public void setSistema(Sistema sistema) {
+        this.sistema = sistema;
+    }
+
+    public boolean isGuiasTab() {
+        return guiasTab;
+    }
+
+    public void setGuiasTab(boolean guiasTab) {
+        this.guiasTab = guiasTab;
+    }
+    
 }

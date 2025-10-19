@@ -41,7 +41,13 @@ public class Partida {
             String accion=Menu.pedirString(jugActual, 1, 3);
             switch (accion){
                 case "X":
-                    
+                    fin=true;
+                    if (jugActual=="Blanco"){
+                        System.out.println("Ganador: Negro");
+                    }
+                    else{
+                        System.out.println("Ganador: Blanco");
+                    }
                     break;
                 case "H":
                     
@@ -58,6 +64,9 @@ public class Partida {
                 default:
                     if (verificarIngreso(accion)){
                         
+                    }
+                    else{
+                        System.out.println("Ingrese movimiento correctamente");
                     }
                     break;
             }
