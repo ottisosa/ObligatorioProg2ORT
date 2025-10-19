@@ -18,7 +18,7 @@ public class Sistema {
     }
 
     public void mostrarRankings() {
-        String rank = "-----------Rankings----------\n"
+        String rank = "\n-----------Rankings----------\n"
                 + "Lista de invictos:\n";
 
         ordenarPorNombre();

@@ -101,20 +101,25 @@ public class Menu {
                                 break;
                         }
                     } else {
-                        if (k==0 && isGuiasTab()){
-                            switch (i){
-                            case 0:
-                                System.out.print("A |");
-                                
-                                break;
-                            case 1:
-                                System.out.print("B |");
-                                
-                                break;
-                            case 2:
-                                System.out.print("C |");
-                                
-                                break;
+                        if (k==0){
+                            if (isGuiasTab()){
+                                switch (i){
+                                case 0:
+                                    System.out.print("A |");
+
+                                    break;
+                                case 1:
+                                    System.out.print("B |");
+
+                                    break;
+                                case 2:
+                                    System.out.print("C |");
+
+                                    break;
+                                }
+                            }
+                            else{
+                            System.out.print("  |");
                             }
                         }
                         else{
