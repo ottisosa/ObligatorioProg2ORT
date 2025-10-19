@@ -53,10 +53,10 @@ public class Partida {
                     
                     break;
                 case "B":
-                    
+                    Menu.setGuiasTab(true);
                     break;
                 case "N":
-                    
+                    Menu.setGuiasTab(false);
                     break;
                 case "T":
                     

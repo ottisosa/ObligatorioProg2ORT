@@ -44,8 +44,9 @@ public class Sistema {
     }
 
     public void mostrarJugadores() {
-
-        String lista = "-----------Lista de Jugadores-----------\n";
+        ordenarPorNombre();
+        
+        String lista = "\n-----------Lista de Jugadores-----------\n";
 
         
         for (int i = 0; i < listaJugadores.size(); i++) {

@@ -6,7 +6,7 @@ public class Obligatorio {
     public static void main(String[] args) {
         
         Sistema sistema = new Sistema();
-        String [][] mat = {{"","","","CW","",""},{"","","","","",""},{"CW","CB","DW","DB","DB","CW"}};
+        String [][] mat = {{"","","","CN","",""},{"","","","","",""},{"CN","CB","DN","DB","DB","CN"}};
         
         Menu menu = new Menu(sistema);
         menu.menuInicial();

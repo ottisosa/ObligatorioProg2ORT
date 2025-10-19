@@ -15,7 +15,7 @@ public class Menu {
         
         int opcion = 0;
         while (opcion != 5) {
-            System.out.println("Autores: Santiago Quintana (327886), Octavio Sosa (363131)"
+            System.out.println("\nAutores: Santiago Quintana (327886), Octavio Sosa (363131)"
                     + "\n\n"
                     + "-----------------------------------------\n"
                     + "------------Menu Principal---------------\n"
@@ -38,6 +38,7 @@ public class Menu {
                     
                 case 2:
                     Partida p = new Partida(sistema);
+                    p.jugarPartida();
                     break;
                     
                 case 3:
@@ -63,7 +64,7 @@ public class Menu {
         
         
         if (isGuiasTab()){
-            System.out.println("    1  2  3  4  5  6");
+            System.out.println("\n    1  2  3  4  5  6");
         }
         for (int i = 0; i < 3; i++) {
             String out = "  ";
@@ -100,7 +101,7 @@ public class Menu {
                                 break;
                         }
                     } else {
-                        if (k==0){
+                        if (k==0 && isGuiasTab()){
                             switch (i){
                             case 0:
                                 System.out.print("A |");

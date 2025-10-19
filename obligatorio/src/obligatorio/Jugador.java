@@ -15,7 +15,7 @@ public class Jugador implements Comparable<Jugador>{
         boolean ok=false;
         String nom="";
         while(!ok) {
-            nom = Menu.pedirString("Ingrese nombre: ", 1, Integer.MAX_VALUE);
+            nom = Menu.pedirString("\nIngrese nombre: ", 1, Integer.MAX_VALUE);
             ok=true;
             for (int i = 0; i < listaJug.size(); i++) {
                 if(listaJug.get(i).getNombre()==nombre){
