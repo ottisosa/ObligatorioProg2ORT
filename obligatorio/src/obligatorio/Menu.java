@@ -45,7 +45,7 @@ public class Menu {
                     
                     }else{
                     
-                        System.out.println("No hay jugadores Suficientes");
+                        System.out.println("\nNo hay jugadores Suficientes");
                     }
                     break;
                     
