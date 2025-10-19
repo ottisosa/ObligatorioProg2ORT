@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Menu {
     private Sistema sistema;
-    private boolean guiasTab;
+    private static boolean guiasTab;
     
     public void menuInicial() {
         
@@ -54,7 +54,7 @@ public class Menu {
         System.out.println("Programa finalizado");
     }
 
-    public void imprimirTablero(String[][] mat) {
+    public static void imprimirTablero(String[][] mat) {
         try {
             System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8.name()));
         } catch (UnsupportedEncodingException ex) {
@@ -205,12 +205,12 @@ public class Menu {
         this.sistema = sistema;
     }
 
-    public boolean isGuiasTab() {
+    public static boolean isGuiasTab() {
         return guiasTab;
     }
 
-    public void setGuiasTab(boolean guiasTab) {
-        this.guiasTab = guiasTab;
+    public static void setGuiasTab(boolean guiasTab) {
+        Menu.guiasTab = guiasTab;
     }
     
 }

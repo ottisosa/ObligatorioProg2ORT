@@ -10,7 +10,7 @@ public class Obligatorio {
         
         Menu menu = new Menu(sistema);
         menu.menuInicial();
-        menu.imprimirTablero(mat);
+        Menu.imprimirTablero(mat);
     }
 }
 
