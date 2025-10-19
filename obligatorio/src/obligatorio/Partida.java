@@ -70,7 +70,7 @@ public class Partida {
                                 System.out.println("\nFin de partida - Empate");
                                 break;
                             default:
-                                System.out.println("\nNo se acepto el empate")
+                                System.out.println("\nNo se acepto el empate");
                                 repetirTurno=true;
                                 break;
                         }
