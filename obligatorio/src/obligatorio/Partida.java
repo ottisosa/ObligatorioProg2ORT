@@ -59,6 +59,7 @@ public class Partida {
                     Menu.setGuiasTab(false);
                     break;
                 case "T":
+                    System.out.println("El jugador "+jugActual+" se rindio. Acepta empate? Y/N");
                     
                     break;
                 default:
@@ -90,6 +91,10 @@ public class Partida {
             }
         }
         return es;
+    }
+    
+    public void empatar(){
+        System.out.println("");
     }
 
     public Jugador getJ1() {
