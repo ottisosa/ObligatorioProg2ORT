@@ -54,7 +54,7 @@ public class Menu {
         System.out.println("Programa finalizado");
     }
 
-    public static void imprimirTablero(String[][] mat) {
+    public void imprimirTablero(String[][] mat) {
         try {
             System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8.name()));
         } catch (UnsupportedEncodingException ex) {
@@ -71,7 +71,7 @@ public class Menu {
                 out += "+--";
             }
             System.out.println(out + "+");
-
+            
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 6; k++) {
                     if (j == 0 || j == 2) {
