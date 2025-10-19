@@ -40,8 +40,8 @@ public class Menu {
                     
                     if (sistema.getListaJugadores().size()>= 2) {
                         
-                    Partida p = new Partida(sistema);
-                    p.jugarPartida();
+                        Partida p = new Partida(sistema);
+                        p.jugarPartida();
                     
                     }else{
                     
@@ -50,6 +50,16 @@ public class Menu {
                     break;
                     
                 case 3:
+                    
+                    if (sistema.getListaJugadores().size()>= 2) {
+
+                        Partida p = new Partida(sistema);
+                        p.continuarPartida();
+                        
+                    }else{
+                    
+                        System.out.println("\nNo hay jugadores Suficientes");
+                    }
                     
                     break;
                     

@@ -37,39 +37,53 @@ public class Partida {
         boolean fin=false;
         while (!fin){
             Menu.imprimirTablero(mat);
-            System.out.println("Ingrese movimiento, X, H, B, N o T. Turno: "+jugActual);
-            String accion=Menu.pedirString(jugActual, 1, 3);
-            switch (accion){
-                case "X":
-                    fin=true;
-                    if (jugActual=="Blanco"){
-                        System.out.println("Ganador: Negro");
-                    }
-                    else{
-                        System.out.println("Ganador: Blanco");
-                    }
-                    break;
-                case "H":
-                    
-                    break;
-                case "B":
-                    Menu.setGuiasTab(true);
-                    break;
-                case "N":
-                    Menu.setGuiasTab(false);
-                    break;
-                case "T":
-                    System.out.println("El jugador "+jugActual+" se rindio. Acepta empate? Y/N");
-                    
-                    break;
-                default:
-                    if (verificarIngreso(accion)){
+            String accion=Menu.pedirString("Ingrese movimiento, X, H, B, N o T. Turno: "+jugActual+" -> ", 1, 3);
+            boolean repetirTurno = true;
+            while (repetirTurno){
+                repetirTurno = false;
+                switch (accion){
+                    case "X":
+                        fin=true;
+                        if (jugActual=="Blanco"){
+                            System.out.println("\nGanador: Negro");
+                        }
+                        else{
+                            System.out.println("\nGanador: Blanco");
+                        }
+                        break;
+                    case "H":
                         
-                    }
-                    else{
-                        System.out.println("Ingrese movimiento correctamente");
-                    }
-                    break;
+                        break;
+                    case "B":
+                        Menu.setGuiasTab(true);
+                        repetirTurno=true;
+                        break;
+                    case "N":
+                        Menu.setGuiasTab(false);
+                        repetirTurno=true;
+                        break;
+                    case "T":
+                        String rinde=Menu.pedirString("\nEl jugador "+jugActual+" se rindio. Si acepta el empate, ponga 'Y' ", 1, 1);
+                        switch (rinde){
+                            case "Y":
+                                fin = true;
+                                System.out.println("\nFin de partida - Empate");
+                                break;
+                            default:
+                                System.out.println("\nNo se acepto el empate")
+                                repetirTurno=true;
+                                break;
+                        }
+                        break;
+                    default:
+                        if (verificarIngreso(accion)){
+                            
+                        }
+                        else{
+                            System.out.println("Ingrese movimiento correctamente");
+                        }
+                        break;
+                }
             }
         }
     }
@@ -93,8 +107,24 @@ public class Partida {
         return es;
     }
     
-    public void empatar(){
-        System.out.println("");
+    public void continuarPartida(){
+
+
+        String jugadas = Menu.pedirString("Ingrese la cadena de jugadas: ",3, Integer.MAX_VALUE);
+
+        String jugActual = "Blanco";
+        boolean fin=false;
+
+        for(int i=0 ; i < jugadas.length(); i+=4){
+            
+            String jug = "" + jugadas.charAt(i) + jugadas.charAt(i+1) + jugadas.charAt(i+2);
+            Menu.imprimirTablero(mat);
+            
+            
+            
+        }
+
+        
     }
 
     public Jugador getJ1() {
