@@ -64,8 +64,7 @@ public class Sistema {
         Collections.sort(listaJugadores, new criterioNombre());
 
     }
-// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    //AFOHIUADIGASFGFIUGIFAS
+
     public void ordenarPorGanadas() {
 
         Collections.sort(listaJugadores);
@@ -81,25 +80,3 @@ public class Sistema {
     }
 
 }
-
-<<<<<<< Updated upstream
-
-
-
-
-
-
-
-
-
-dwadadwaddawwadadadwa
-
-
-
-
-
-
-dwadw8adawhiihawhiawd
-=======
-// pene jaja xd 
->>>>>>> Stashed changes
