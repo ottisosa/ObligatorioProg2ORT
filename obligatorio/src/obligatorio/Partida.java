@@ -33,14 +33,55 @@ public class Partida {
     }
 
     public void jugarPartida(){
+        String jugActual = "Blanco";
         boolean fin=false;
         while (!fin){
             Menu.imprimirTablero(mat);
-            
+            System.out.println("Ingrese movimiento, X, H, B, N o T. Turno: "+jugActual);
+            String accion=Menu.pedirString(jugActual, 1, 3);
+            switch (accion){
+                case "X":
+                    
+                    break;
+                case "H":
+                    
+                    break;
+                case "B":
+                    
+                    break;
+                case "N":
+                    
+                    break;
+                case "T":
+                    
+                    break;
+                default:
+                    if (verificarIngreso(accion)){
+                        
+                    }
+                    break;
+            }
         }
     }
     
-    
+    public boolean verificarIngreso(String in){
+        boolean es=true;
+        if (in.length()!=3 ){
+            es=false;
+        }
+        else{
+            if (!(in.charAt(0)=='A' || in.charAt(0)=='B' || in.charAt(0)=='C')){
+                es=false;
+            }
+            if (!(in.charAt(1)=='1' || in.charAt(1)=='2' || in.charAt(1)=='3' || in.charAt(1)=='4' || in.charAt(1)=='5' || in.charAt(1)=='6')){
+                es=false;
+            }
+            if (!(in.charAt(2)=='C' || in.charAt(2)=='D' || in.charAt(2)=='I')){
+                es=false;
+            }
+        }
+        return es;
+    }
 
     public Jugador getJ1() {
         return j1;

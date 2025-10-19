@@ -80,16 +80,16 @@ public class Menu {
                         }
                         
                         switch (mat[i][k]) {
-                            case "CW":
+                            case "CB":
                                 System.out.print(" ○");
                                 break;
-                            case "CB":
+                            case "CN":
                                 System.out.print(" ●");
                                 break;
-                            case "DW":
+                            case "DB":
                                 System.out.print("○ ");
                                 break;
-                            case "DB":
+                            case "DN":
                                 System.out.print("● ");
                                 break;
                             default:
@@ -119,16 +119,16 @@ public class Menu {
                         
                         
                         switch (mat[i][k]) {
-                            case "CW":
+                            case "CB":
                                 System.out.print("○ ");
                                 break;
-                            case "CB":
+                            case "CN":
                                 System.out.print("● ");
                                 break;
-                            case "DW":
+                            case "DB":
                                 System.out.print(" ○");
                                 break;
-                            case "DB":
+                            case "DN":
                                 System.out.print(" ●");
                                 break;
                             default:
