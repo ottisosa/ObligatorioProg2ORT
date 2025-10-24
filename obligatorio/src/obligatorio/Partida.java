@@ -78,16 +78,114 @@ public class Partida {
                     default:
                         if (verificarIngreso(accion)){
                             
+                            if(!(ingresarMovimiento(accion, jugActual))){
+                                repetirTurno=true;
+                            }
+                            
                         }
                         else{
                             System.out.println("Ingrese movimiento correctamente");
+                            repetirTurno=true;
                         }
+
                         break;
                 }
+            }
+            if(jugActual=="Blanco"){
+                jugActual="Negro";
+            }
+            else{
+                jugActual="Blanco";
             }
         }
     }
     
+    public boolean ingresarMovimiento(String mov, String jugActual){
+        boolean hacerMov = true;
+        String movi = "";
+        String error = "";
+        int i = 0;
+        switch (mov.charAt(0)) {
+            case 'A':
+                i=0;
+                break;
+            case 'B':
+                i=1;
+                break;
+            case 'C':
+                i=2;
+                break;
+            default:
+                break;
+        }
+
+        int j = (Integer.parseInt(""+mov.charAt(1))-1);
+
+        if (mov.charAt(2)=='C' || mov.charAt(2)=='D'){
+            if (mat[i][j] == ""){
+                if (jugActual=="Blanco"){
+                    movi=""+mov.charAt(2)+"B";
+                }
+                else{
+                    movi=""+mov.charAt(2)+"N";
+                }
+            }
+            else{
+                error="La posicion elegida ya tiene una pieza";
+            }
+        }
+        else{
+            if (mat[i][j]!=""){
+                if(jugActual=="Blanco" && mat[i][j].charAt(1)=='B'){
+
+                    switch (mat[i][j].charAt(1)) {
+                        case 'C':
+                            
+                            mat[i][j] = "DB";
+                                                      
+                          break;
+                    
+                        case 'D':
+
+                            mat[i][j] = "CB";
+                            break;
+                    }
+
+                }
+                else{
+
+                    error="La pieza elegida no es de su color";
+
+                }
+                
+                if(jugActual=="Negro" && mat[i][j].charAt(1)=='N'){
+                    switch (mat[i][j].charAt(0)) {
+                        case 'C':
+                            mat[i][j] = "DN";
+                            break;
+                        case 'D':
+                            mat[i][j] = "CN";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else{
+                    error="La pieza elegida no es de su color";
+                }
+            }
+            else{
+                error="La posicion elegida no tiene una pieza a invetir";
+            }
+        }
+        
+        if (error!=""){
+            hacerMov=false;
+            System.out.println(error);
+        }
+        return hacerMov;
+    }
+
     public boolean verificarIngreso(String in){
         boolean es=true;
         if (in.length()!=3 ){
