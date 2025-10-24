@@ -36,15 +36,15 @@ public class Partida {
         String jugActual = "Blanco";
         boolean fin=false;
         while (!fin){
-            Menu.imprimirTablero(mat);
-            String accion=Menu.pedirString("Ingrese movimiento, X, H, B, N o T. Turno: "+jugActual+" -> ", 1, 3);
             boolean repetirTurno = true;
             while (repetirTurno){
                 repetirTurno = false;
+                Menu.imprimirTablero(this.getMat());
+                String accion=Menu.pedirString("Ingrese movimiento, X, H, B, N o T. Turno: "+jugActual+" -> ", 1, 3);
                 switch (accion){
                     case "X":
                         fin=true;
-                        if (jugActual=="Blanco"){
+                        if (jugActual.equals("Blanco")){
                             System.out.println("\nGanador: Negro");
                         }
                         else{
@@ -122,7 +122,7 @@ public class Partida {
         int j = (Integer.parseInt(""+mov.charAt(1))-1);
 
         if (mov.charAt(2)=='C' || mov.charAt(2)=='D'){
-            if (mat[i][j] == ""){
+            if (this.getMat()[i][j] == ""){
                 if (jugActual=="Blanco"){
                     movi=""+mov.charAt(2)+"B";
                 }
@@ -135,22 +135,23 @@ public class Partida {
             }
         }
         else{
-            if (mat[i][j]!=""){
-                if(jugActual=="Blanco" && mat[i][j].charAt(1)=='B'){
+            if (!(this.getMat()[i][j].equals(""))){
+                if(jugActual.equals("Blanco")){
+                    if (this.getMat()[i][j].charAt(1)=='B'){
 
-                    switch (mat[i][j].charAt(1)) {
-                        case 'C':
-                            
-                            mat[i][j] = "DB";
-                                                      
-                          break;
-                    
-                        case 'D':
-
-                            mat[i][j] = "CB";
+                        switch (this.getMat()[i][j].charAt(1)) {
+                            case 'C':
+                                
+                                movi = "DB";
+                                                        
                             break;
-                    }
+                        
+                            case 'D':
 
+                                movi = "CB";
+                                break;
+                        }
+                    }
                 }
                 else{
 
@@ -158,20 +159,22 @@ public class Partida {
 
                 }
                 
-                if(jugActual=="Negro" && mat[i][j].charAt(1)=='N'){
-                    switch (mat[i][j].charAt(0)) {
-                        case 'C':
-                            mat[i][j] = "DN";
-                            break;
-                        case 'D':
-                            mat[i][j] = "CN";
-                            break;
-                        default:
-                            break;
+                if(jugActual.equals("Negro")){
+                    if (this.getMat()[i][j].charAt(1)=='N'){
+                        switch (this.getMat()[i][j].charAt(0)) {
+                            case 'C':
+                                movi = "DN";
+                                break;
+                            case 'D':
+                                movi = "CN";
+                                break;
+                            default:
+                                break;
+                        }
                     }
-                }
-                else{
-                    error="La pieza elegida no es de su color";
+                    else{
+                        error="La pieza elegida no es de su color";
+                    }
                 }
             }
             else{
@@ -179,10 +182,14 @@ public class Partida {
             }
         }
         
-        if (error!=""){
+        if ((error.equals(""))){
+            this.getMat()[i][j]=movi;
+        }
+        else{
             hacerMov=false;
             System.out.println(error);
         }
+
         return hacerMov;
     }
 
