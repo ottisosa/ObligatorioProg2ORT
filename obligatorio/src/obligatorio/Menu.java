@@ -114,6 +114,12 @@ public class Menu {
                             case "DN":
                                 System.out.print("● ");
                                 break;
+                            case "OO":
+                                System.out.print("OO");
+                                break;
+                            case "XX":
+                                System.out.print("XX");
+                                break;
                             default:
                                 System.out.print("  ");
                                 break;
@@ -157,6 +163,12 @@ public class Menu {
                                 break;
                             case "DN":
                                 System.out.print(" ●");
+                                break;
+                            case "OO":
+                                System.out.print("OO");
+                                break;
+                            case "XX":
+                                System.out.print("XX");
                                 break;
                             default:
                                 System.out.print("  ");
@@ -218,7 +230,7 @@ public class Menu {
 
     public Menu(Sistema sistema) {
         this.sistema = sistema;
-        this.guiasTab = true;
+        Menu.guiasTab = true;
     }
 
     public Sistema getSistema() {

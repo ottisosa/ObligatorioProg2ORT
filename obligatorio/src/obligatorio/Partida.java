@@ -24,11 +24,11 @@ public class Partida {
         }
         for (int i = 0; i < sistema.getListaJugadores().size(); i++) {
             if (i+1==num2){
-                this.j1 = sistema.getListaJugadores().get(i);
+                this.j2 = sistema.getListaJugadores().get(i);
             }
         }
         
-        String[][] matriz = {{"","","","","",""},{"","","","","",""},{"","","","","",""}};
+        String[][] matriz = {{" "," "," "," "," "," "},{" "," "," "," "," "," "},{" "," "," "," "," "," "}};
         this.mat = matriz;
     }
 
@@ -45,10 +45,10 @@ public class Partida {
                     case "X":
                         fin=true;
                         if (jugActual.equals("Blanco")){
-                            System.out.println("\nGanador: Negro");
+                            System.out.println("\nGanador: Negro - "+this.getJ1().getNombre());
                         }
                         else{
-                            System.out.println("\nGanador: Blanco");
+                            System.out.println("\nGanador: Blanco - "+this.getJ2().getNombre());
                         }
                         break;
                     case "H":
@@ -87,10 +87,27 @@ public class Partida {
                             System.out.println("Ingrese movimiento correctamente");
                             repetirTurno=true;
                         }
-
                         break;
                 }
             }
+            
+            String ganador=hayGanador();
+            if (!(ganador.equals(""))){
+                fin=true;
+                if(ganador.equals("Blanco")){
+                    Menu.imprimirTablero(this.getMat());
+                    System.out.println("Ganador: Blanco - "+this.getJ1().getNombre());
+                    this.getJ1().addGanadas();
+                    this.getJ2().setInvicto(false);
+                }
+                else {
+                    Menu.imprimirTablero(this.getMat());
+                    System.out.println("Ganador: Negro - "+this.getJ2().getNombre());
+                    this.getJ2().addGanadas();
+                    this.getJ1().setInvicto(false);
+                }
+            }
+
             if(jugActual=="Blanco"){
                 jugActual="Negro";
             }
@@ -100,6 +117,96 @@ public class Partida {
         }
     }
     
+    public String hayGanador(){
+        boolean gano=false;
+        String ganador = "";
+        for (int i = 0; i < this.getMat().length && (!gano); i++) {
+            if ((!gano) && this.getMat()[i][0].charAt(0)=='C' && this.getMat()[i][1].charAt(0)=='D' && this.getMat()[i][2].charAt(0)=='C' && this.getMat()[i][3].charAt(0)=='D' && this.getMat()[i][4].charAt(0)=='C' &&this.getMat()[i][5].charAt(0)=='D'){
+                gano = true;
+                ganador = "Blanco";
+                for (int j = 0; j < this.getMat()[0].length; j++) {
+                    this.getMat()[i][j]="OO";
+                }
+            }
+            if ((!gano) && this.getMat()[i][0].charAt(0)=='D' && this.getMat()[i][1].charAt(0)=='C' && this.getMat()[i][2].charAt(0)=='D' && this.getMat()[i][3].charAt(0)=='C' && this.getMat()[i][4].charAt(0)=='D' &&this.getMat()[i][5].charAt(0)=='C'){
+                gano = true;
+                ganador = "Negro";
+                for (int j = 0; j < this.getMat()[0].length; j++) {
+                    this.getMat()[i][j]="XX";
+                }
+            }
+        }
+
+        for (int i = 0; i < this.getMat()[0].length && (!gano); i+=2) {
+            if((!gano) && this.getMat()[0][i].charAt(0)=='C' && this.getMat()[0][i+1].charAt(0)=='D' && this.getMat()[1][i].charAt(0)=='C' && this.getMat()[1][i+1].charAt(0)=='D' && this.getMat()[2][i].charAt(0)=='C' &&this.getMat()[2][i+1].charAt(0)=='D'){
+                gano=true;
+                ganador="Blanco";
+                for (int j=0; j<3; j++){
+                    this.getMat()[j][i]="OO";
+                    this.getMat()[j][i+1]="OO";
+                }
+            }
+            if((!gano) && this.getMat()[0][i].charAt(0)=='D' && this.getMat()[0][i+1].charAt(0)=='C' && this.getMat()[1][i].charAt(0)=='D' && this.getMat()[1][i+1].charAt(0)=='C' && this.getMat()[2][i].charAt(0)=='D' &&this.getMat()[2][i+1].charAt(0)=='C'){
+                gano=true;
+                ganador="Negro";
+                for (int j=0; j<3; j++){
+                    this.getMat()[j][i]="XX";
+                    this.getMat()[j][i+1]="XX";
+                }
+            }
+        }
+        
+        for(int i=0; i<3; i++){
+            if((!gano) && this.getMat()[0][i].charAt(0)=='C' && this.getMat()[0][i+1].charAt(0)=='D' && this.getMat()[1][i+1].charAt(0)=='C' && this.getMat()[1][i+2].charAt(0)=='D' && this.getMat()[2][i+2].charAt(0)=='C' && this.getMat()[2][i+3].charAt(0)=='D'){
+                gano=true;
+                ganador="Blanco";
+                for (int j = i; j < i+3; j++) {
+                    int fila=0;
+                    this.getMat()[fila][j+fila]="OO";
+                    this.getMat()[fila][j+fila+1]="OO";
+                }
+            }
+            if((!gano) && this.getMat()[0][i].charAt(0)=='D' && this.getMat()[0][i+1].charAt(0)=='C' && this.getMat()[1][i+1].charAt(0)=='D' && this.getMat()[1][i+2].charAt(0)=='C' && this.getMat()[2][i+2].charAt(0)=='D' && this.getMat()[2][i+3].charAt(0)=='C'){
+                gano=true;
+                ganador="Negro";
+                for (int j = i; j < i+3; j++) {
+                    int fila=0;
+                    this.getMat()[fila][j+fila]="XX";
+                    this.getMat()[fila][j+fila+1]="XX";
+                    fila++;
+                }
+            }
+        }
+        
+        for(int i=0; i<3; i++){
+            if((!gano) && this.getMat()[2][i].charAt(0)=='C' && this.getMat()[2][i+1].charAt(0)=='D' && this.getMat()[1][i+1].charAt(0)=='C' && this.getMat()[1][i+2].charAt(0)=='D' && this.getMat()[0][i+2].charAt(0)=='C' && this.getMat()[0][i+3].charAt(0)=='D'){
+                gano=true;
+                ganador="Blanco";
+                int fila=2;
+                for (int j = i; j < i+3; j++) {
+                    this.getMat()[fila][j]="OO";
+                    this.getMat()[fila][j+1]="OO";
+                    fila--;
+                }
+            }
+            if((!gano) && this.getMat()[2][i].charAt(0)=='D' && this.getMat()[2][i+1].charAt(0)=='C' && this.getMat()[1][i+1].charAt(0)=='D' && this.getMat()[1][i+2].charAt(0)=='C' && this.getMat()[0][i+2].charAt(0)=='D' && this.getMat()[0][i+3].charAt(0)=='C'){
+                gano=true;
+                ganador="Negro";
+                int fila=2;
+                for (int j = i; j < i+3; j++) {
+                    this.getMat()[fila][j]="XX";
+                    this.getMat()[fila][j+1]="XX";
+                    fila--;
+                }
+            }
+        }
+        
+        return ganador;
+    }
+
+
+
+
     public boolean ingresarMovimiento(String mov, String jugActual){
         boolean hacerMov = true;
         String movi = "";
@@ -122,7 +229,7 @@ public class Partida {
         int j = (Integer.parseInt(""+mov.charAt(1))-1);
 
         if (mov.charAt(2)=='C' || mov.charAt(2)=='D'){
-            if (this.getMat()[i][j] == ""){
+            if (this.getMat()[i][j].equals(" ")){
                 if (jugActual=="Blanco"){
                     movi=""+mov.charAt(2)+"B";
                 }
@@ -135,31 +242,23 @@ public class Partida {
             }
         }
         else{
-            if (!(this.getMat()[i][j].equals(""))){
+            if (!(this.getMat()[i][j].equals(" "))){
                 if(jugActual.equals("Blanco")){
                     if (this.getMat()[i][j].charAt(1)=='B'){
-
-                        switch (this.getMat()[i][j].charAt(1)) {
+                        switch (this.getMat()[i][j].charAt(0)) {
                             case 'C':
-                                
-                                movi = "DB";
-                                                        
-                            break;
-                        
+                                movi = "DB";      
+                                break;
                             case 'D':
-
                                 movi = "CB";
                                 break;
                         }
                     }
+                    else{
+                        error = "La pieza elegida no es de su color";
+                    }
                 }
                 else{
-
-                    error="La pieza elegida no es de su color";
-
-                }
-                
-                if(jugActual.equals("Negro")){
                     if (this.getMat()[i][j].charAt(1)=='N'){
                         switch (this.getMat()[i][j].charAt(0)) {
                             case 'C':
@@ -173,12 +272,13 @@ public class Partida {
                         }
                     }
                     else{
-                        error="La pieza elegida no es de su color";
+                        error = "La pieza elegida no es de su color";
                     }
+
                 }
             }
             else{
-                error="La posicion elegida no tiene una pieza a invetir";
+                error = "La posicion elegida no tiene una pieza a invetir";
             }
         }
         
