@@ -10,18 +10,19 @@ public class Partida {
     public Partida(Sistema sistema) {
         sistema.mostrarJugadores();
         
-        int num1 = Menu.pedirNumero("Ingrese nro de jugador 1", 1, sistema.getListaJugadores().size());
+        int num1 = Menu.pedirNumero("Ingrese nro de jugador 1: ", 1, sistema.getListaJugadores().size());
         for (int i = 0; i < sistema.getListaJugadores().size(); i++) {
             if (i+1==num1){
                 this.j1 = sistema.getListaJugadores().get(i);
             }
         }
         
-        int num2 = Menu.pedirNumero("Ingrese nro de jugador 2", 1, sistema.getListaJugadores().size());
+        int num2 = Menu.pedirNumero("Ingrese nro de jugador 2: ", 1, sistema.getListaJugadores().size());
         while (num2==num1){
-            System.out.println("Jugador 2 tiene que ser diferente a Jugador 1");
-            num2 = Menu.pedirNumero("Ingrese nro de jugador 2", 1, sistema.getListaJugadores().size());
+            System.out.println("Jugador 2 tiene que ser diferente a Jugador 1: ");
+            num2 = Menu.pedirNumero("Ingrese nro de jugador 2: ", 1, sistema.getListaJugadores().size());
         }
+        
         for (int i = 0; i < sistema.getListaJugadores().size(); i++) {
             if (i+1==num2){
                 this.j2 = sistema.getListaJugadores().get(i);
@@ -32,8 +33,8 @@ public class Partida {
         this.mat = matriz;
     }
 
-    public void jugarPartida(){
-        String jugActual = "Blanco";
+    public void jugarPartida(String jugAct){
+        String jugActual = jugAct;
         boolean fin=false;
         while (!fin){
             boolean repetirTurno = true;
@@ -41,6 +42,7 @@ public class Partida {
                 repetirTurno = false;
                 Menu.imprimirTablero(this.getMat());
                 String accion=Menu.pedirString("Ingrese movimiento, X, H, B, N o T. Turno: "+jugActual+" -> ", 1, 3);
+                accion = accion.toUpperCase();
                 switch (accion){
                     case "X":
                         fin=true;
@@ -209,6 +211,7 @@ public class Partida {
 
     public boolean ingresarMovimiento(String mov, String jugActual){
         boolean hacerMov = true;
+        mov = mov.toUpperCase();
         String movi = "";
         String error = "";
         int i = 0;
@@ -294,6 +297,7 @@ public class Partida {
     }
 
     public boolean verificarIngreso(String in){
+        in = in.toUpperCase();
         boolean es=true;
         if (in.length()!=3 ){
             es=false;
@@ -311,11 +315,20 @@ public class Partida {
         }
         return es;
     }
+
+    public String jugadaGanadora(String jugActual){
+
+
+        String jugGanadora = "";
+        
+
+        return jugGanadora;
+    }
     
     public void continuarPartida(){
 
-
         String jugadas = Menu.pedirString("Ingrese la cadena de jugadas: ",3, Integer.MAX_VALUE);
+        jugadas = jugadas.toUpperCase();
 
         String jugActual = "Blanco";
         boolean fin=false;
@@ -323,13 +336,19 @@ public class Partida {
         for(int i=0 ; i < jugadas.length(); i+=4){
             
             String jug = "" + jugadas.charAt(i) + jugadas.charAt(i+1) + jugadas.charAt(i+2);
+            System.out.println("Jugador "+jugActual+" - "+jug);
+            ingresarMovimiento(jug, jugActual);
             Menu.imprimirTablero(mat);
             
-            
-            
+            if(jugActual=="Blanco"){
+                jugActual="Negro";
+            }
+            else{
+                jugActual="Blanco";
+            }
         }
-
         
+        this.jugarPartida(jugActual);
     }
 
     public Jugador getJ1() {

@@ -28,7 +28,7 @@ public class Jugador implements Comparable<Jugador>{
         
         if (ok==true){
             this.nombre = nom;
-            this.edad = Menu.pedirNumero("Ingrese Edad (1-200)", 1, 200);
+            this.edad = Menu.pedirNumero("Ingrese Edad (1-200):", 1, 200);
             this.invicto = true;
             this.ganadas = 0;
         }
@@ -71,12 +71,12 @@ public class Jugador implements Comparable<Jugador>{
     // Criterio por defecto ordenar por Ganadas
     public int compareTo(Jugador jug){
     
-        return this.getGanadas() - jug.getGanadas();
+        return jug.getGanadas() - this.getGanadas();
     }
 
     @Override
     public String toString() {
-        String str = this.nombre+", "+this.edad+" anos - "+this.ganadas+" wins";
+        String str = this.nombre+", "+this.edad+" anos - "+this.ganadas+" wins: ";
         if (this.invicto){
             str+=", Invicto";
         }

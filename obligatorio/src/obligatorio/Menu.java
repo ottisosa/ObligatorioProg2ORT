@@ -10,9 +10,9 @@ import java.util.*;
 public class Menu {
     private Sistema sistema;
     private static boolean guiasTab;
-    
+
     public void menuInicial() {
-        
+
         int opcion = 0;
         while (opcion != 5) {
             System.out.println("\nAutores: Santiago Quintana (327886), Octavio Sosa (363131)"
@@ -24,52 +24,59 @@ public class Menu {
                     + "2. Comenzar partida\n"
                     + "3. Continuar partida\n"
                     + "4. Mostrar ranking e invictos\n"
-                    + "5. Terminar el programa"
-            );
-            
+                    + "5. Terminar el programa");
+
             opcion = pedirNumero("Elija su opcion (1-5): ", 1, 5);
 
-            switch(opcion){
-            
+            switch (opcion) {
                 case 1:
                     Jugador jug = new Jugador(sistema.getListaJugadores());
                     sistema.addListaJugadores(jug);
                     break;
-                    
+
                 case 2:
-                    
-                    if (sistema.getListaJugadores().size()>= 2) {
-                        
+
+                    if (sistema.getListaJugadores().size() >= 2) {
+
                         Partida p = new Partida(sistema);
-                        p.jugarPartida();
-                    
-                    }else{
-                    
-                        System.out.println("\nNo hay jugadores Suficientes");
+                        p.jugarPartida("Blanco");
+
+                    } else {
+
+                        System.out.println("\nNo hay jugadores Suficientes.");
                     }
                     break;
-                    
+
                 case 3:
-                    
-                    if (sistema.getListaJugadores().size()>= 2) {
+
+                    if (sistema.getListaJugadores().size() >= 2) {
 
                         Partida p = new Partida(sistema);
                         p.continuarPartida();
-                        
-                    }else{
-                    
-                        System.out.println("\nNo hay jugadores Suficientes");
+
+                    } else {
+
+                        System.out.println("\nNo hay jugadores Suficientes.");
                     }
-                    
+
                     break;
-                    
+
                 case 4:
-                    sistema.mostrarRankings();
-                                 
+
+                    if (sistema.getListaJugadores().size() >= 1) {
+
+                        sistema.mostrarRankings();
+
+                    } else {
+
+                        System.out.println("\nNo hay jugadores Suficientes para mostrar el ranking.");
+                    }
                     break;
-                    
-            };
-        };
+
+            }
+            ;
+        }
+        ;
         System.out.println("Programa finalizado");
     }
 
@@ -79,9 +86,8 @@ public class Menu {
         } catch (UnsupportedEncodingException ex) {
             System.getLogger(Main.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
-        
-        
-        if (isGuiasTab()){
+
+        if (isGuiasTab()) {
             System.out.println("\n    1  2  3  4  5  6");
         }
         for (int i = 0; i < 3; i++) {
@@ -90,17 +96,16 @@ public class Menu {
                 out += "+--";
             }
             System.out.println(out + "+");
-            
+
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 6; k++) {
                     if (j == 0 || j == 2) {
-                        if (k==0){
+                        if (k == 0) {
                             System.out.print("  |");
-                        }
-                        else{
+                        } else {
                             System.out.print("|");
                         }
-                        
+
                         switch (mat[i][k]) {
                             case "CB":
                                 System.out.print(" ○");
@@ -125,32 +130,29 @@ public class Menu {
                                 break;
                         }
                     } else {
-                        if (k==0){
-                            if (isGuiasTab()){
-                                switch (i){
-                                case 0:
-                                    System.out.print("A |");
+                        if (k == 0) {
+                            if (isGuiasTab()) {
+                                switch (i) {
+                                    case 0:
+                                        System.out.print("A |");
 
-                                    break;
-                                case 1:
-                                    System.out.print("B |");
+                                        break;
+                                    case 1:
+                                        System.out.print("B |");
 
-                                    break;
-                                case 2:
-                                    System.out.print("C |");
+                                        break;
+                                    case 2:
+                                        System.out.print("C |");
 
-                                    break;
+                                        break;
                                 }
+                            } else {
+                                System.out.print("  |");
                             }
-                            else{
-                            System.out.print("  |");
-                            }
-                        }
-                        else{
+                        } else {
                             System.out.print("|");
                         }
-                        
-                        
+
                         switch (mat[i][k]) {
                             case "CB":
                                 System.out.print("○ ");
@@ -207,6 +209,7 @@ public class Menu {
         }
         return dato;
     }
+
     public static String pedirString(String mensaje, int minimo, int maximo) {
         Scanner in = new Scanner(System.in);
         String dato = "";
@@ -248,5 +251,5 @@ public class Menu {
     public static void setGuiasTab(boolean guiasTab) {
         Menu.guiasTab = guiasTab;
     }
-    
+
 }

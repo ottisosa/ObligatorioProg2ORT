@@ -75,7 +75,7 @@ public class Sistema {
 
         @Override
         public int compare(Jugador jug1, Jugador jug2) {
-            return jug1.getNombre().compareTo(jug2.getNombre());
+            return jug1.getNombre().toUpperCase().compareTo(jug2.getNombre().toUpperCase());
         }
     }
 
