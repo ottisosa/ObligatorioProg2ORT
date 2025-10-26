@@ -338,13 +338,13 @@ public class Partida {
 
             for (int j = 0; j < 6; j++) {
                 for (int k = 0; k < 3; k++) {
-                    if (i==0){
+                    if (k==0){
                         dir="C";
                     }
-                    if (i==1){
+                    if (k==1){
                         dir="D";
                     }
-                    if (i==2){
+                    if (k==2){
                         dir="I";
                     }
                     mov=fil+(j+1)+dir;
@@ -355,7 +355,7 @@ public class Partida {
                             matAux[l][m] = this.getMat()[l][m];
                         }
                     }
-                    if(ingresarMovimiento(mov, jugActual, matAux, true)){
+                    if(ingresarMovimiento(mov, jugActual, matAux, false)){
                         if(hayGanador(matAux).equals(jugActual)){
                             jugGanadora="Jugada Ganadora: "+mov;
                         }
