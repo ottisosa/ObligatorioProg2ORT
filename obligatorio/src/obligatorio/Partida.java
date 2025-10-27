@@ -110,8 +110,7 @@ public class Partida {
                     this.getJ1().setInvicto(false);
                 }
             }
-
-            if(this.empate()){
+            else if(this.empate()){
                 fin=true;
                 System.out.println("Fin de partida - Empate");
             }
