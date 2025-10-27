@@ -163,19 +163,20 @@ public class Partida {
             if((!gano) && matriz[0][i].charAt(0)=='C' && matriz[0][i+1].charAt(0)=='D' && matriz[1][i+1].charAt(0)=='C' && matriz[1][i+2].charAt(0)=='D' && matriz[2][i+2].charAt(0)=='C' && matriz[2][i+3].charAt(0)=='D'){
                 gano=true;
                 ganador="Blanco";
+                int fila=0;
                 for (int j = i; j < i+3; j++) {
-                    int fila=0;
-                    matriz[fila][j+fila]="OO";
-                    matriz[fila][j+fila+1]="OO";
+                    matriz[fila][j]="OO";
+                    matriz[fila][j+1]="OO";
+                    fila++;
                 }
             }
             if((!gano) && matriz[0][i].charAt(0)=='D' && matriz[0][i+1].charAt(0)=='C' && matriz[1][i+1].charAt(0)=='D' && matriz[1][i+2].charAt(0)=='C' && matriz[2][i+2].charAt(0)=='D' && matriz[2][i+3].charAt(0)=='C'){
                 gano=true;
                 ganador="Negro";
+                int fila=0;
                 for (int j = i; j < i+3; j++) {
-                    int fila=0;
-                    matriz[fila][j+fila]="XX";
-                    matriz[fila][j+fila+1]="XX";
+                    matriz[fila][j]="XX";
+                    matriz[fila][j+1]="XX";
                     fila++;
                 }
             }
