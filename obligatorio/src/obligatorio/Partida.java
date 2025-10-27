@@ -111,6 +111,11 @@ public class Partida {
                 }
             }
 
+            if(this.empate()){
+                fin=true;
+                System.out.println("Fin de partida - Empate");
+            }
+
             if(jugActual=="Blanco"){
                 jugActual="Negro";
             }
@@ -393,6 +398,18 @@ public class Partida {
         }
         
         this.jugarPartida(jugActual);
+    }
+
+    public boolean empate(){
+        boolean hayEmpate=true;
+        for (int i = 0; i < this.getMat().length; i++) {
+            for (int j = 0; j < this.getMat()[0].length; j++) {
+                if(this.getMat()[i][j].equals(" ")){
+                    hayEmpate=false;
+                }
+            }
+        }
+        return hayEmpate;
     }
 
     public Jugador getJ1() {
